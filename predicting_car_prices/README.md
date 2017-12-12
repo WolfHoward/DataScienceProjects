@@ -1,3 +1,5 @@
 ## Predicting Car Prices
 
-This project is focused on using the K-Neighbors Regression to predict the price of cars.  
+This project is focused on using the K-Neighbors Regression to predict the price of cars. I'm using the [Automobile Data Set](https://archive.ics.uci.edu/ml/datasets/automobile) from the 1985 Ward's Automotive Yearbook. You can get more detailed information on the data set by following the link. Pandas' `read_csv` method handily deals with the odd `.data` extension.
+The first half is primarily cleaning the data set, which starts with a number of null- and string-type values. I also take some time to familiarize myself with the data. Rather than leaving the `bore` and `stroke` columns separate, I calculate the `bore-to-stroke` ratio, which is a more meaningful interpretation of these values for a particular engine.
+The bulk of the work starts at cell 20, when I create a method to build a univariate k-neighbors regression model. I use the root mean squared error metric to analyze model performance across each individual feature. This gives me an understanding of which features are most effective for predicting prices in a vacuum. I move on to perform multivariate regression, optimizing model performance by taking the features with the lowest error in the univariate case. 
